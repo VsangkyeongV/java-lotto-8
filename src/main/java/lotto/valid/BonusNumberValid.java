@@ -10,6 +10,7 @@ public class BonusNumberValid {
     final String ERROR_BONUS_RANGE_MESSAGE = "[ERROR] 보너스 번호는 1부터 45 사이의 숫자여야 합니다.";
 
     public BonusNumberValid(String bonusNumber) {
+        this.bonusNumber = bonusNumber;
         isEmpty();
         isNum();
         isRange();
