@@ -36,4 +36,11 @@ class WinningNumbersValidTest {
                 .hasMessageContaining("당첨 번호는 1부터 45 사이의 숫자여야 합니다");
     }
 
+    @Test
+    void 당첨_번호_6개_아니면_예외_발생() {
+        assertThatThrownBy(() -> new WinningNumbersValid("1,2,3,4,5"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("당첨 번호는 6개여야 합니다");
+    }
+
 }
