@@ -20,14 +20,15 @@
         - 구분자 쉼표 x
         - 1 ~ 45 범위 x
         - 당첨 번호 6개 x
+        - 당첨 번호 중복 x
     - 보너스 번호 입력
         - 입력 x
         - 숫자 x
         - 1 ~ 45 범위 x
 3. 로또 (Lotto.java)
 4. 로또 발매기 (LottoMachine.java)
-5. 당첨 확인 (Win.java)
-6. output (OutputView.java)
+5. 당첨 enum (Win.java)
+6. 당첨 결과 (WinResult.java)
 
 
 
