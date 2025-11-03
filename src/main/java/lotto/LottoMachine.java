@@ -8,7 +8,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class LottoMachine {
 
     static final int LOTTO_PRICE = 1000;
-    private int printTimes;
+    private final int printTimes;
     List<Lotto> Lottos = new ArrayList<>();
 
     public LottoMachine(String pay) {
@@ -16,29 +16,25 @@ public class LottoMachine {
     }
 
     List<Integer> makeLottoNumbers() {
-        List<Integer> lottoNumbers = new ArrayList<>();
+        List<Integer> lottoNumbers = new ArrayList<>(Randoms.pickUniqueNumbersInRange(1, 45, 6));
 
-        while (lottoNumbers.size() < 6) {
-            int randomNumber = Randoms.pickNumberInRange(1, 45);
-            if (!lottoNumbers.contains(randomNumber)) {
-                lottoNumbers.add(randomNumber);
-            }
-        }
-
-        return lottoNumbers;
+        return lottoNumbers.stream().sorted().toList();
     }
 
-    public void makeLottos() {
+    public List<Lotto> makeLottos() {
         for (int i = 0; i < printTimes; i++) {
             Lottos.add(new Lotto(makeLottoNumbers()));
         }
-    }
-
-    public void run() {
-        makeLottos();
+        return Lottos;
     }
 
     public String printLottos() {
         return String.join("\n", Lottos.stream().map(Lotto::toString).toList());
+    }
+
+    public void printResult() {
+        System.out.println("");
+        System.out.println(printTimes + "개를 구매했습니다.");
+        System.out.println(printLottos());
     }
 }
