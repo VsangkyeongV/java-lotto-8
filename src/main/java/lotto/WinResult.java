@@ -83,6 +83,6 @@ public class WinResult {
 
         double profitRate = (double) totalPrize / pay * 100;
 
-        return String.format("총 수익률은 %.1f%%입니다", profitRate);
+        return String.format("총 수익률은 %.1f%%입니다.", profitRate);
     }
 }
